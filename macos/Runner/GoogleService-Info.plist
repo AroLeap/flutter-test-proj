@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>991262486486-7n8h3m1i0932es6p1tl2laftntelslup.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.991262486486-7n8h3m1i0932es6p1tl2laftntelslup</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>991262486486-0b5cbl1g8o5jf08v6mfvesa4mkmt0kf5.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDRobFQ7yxVsKfpAHSIA0Ff-PnnFHKI_pg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>991262486486</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.myApp</string>
+	<key>PROJECT_ID</key>
+	<string>aroleap-fa76f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>aroleap-fa76f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:991262486486:ios:8fea959a2cf941cc27fe77</string>
+	<key>DATABASE_URL</key>
+	<string>https://aroleap-fa76f-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>
