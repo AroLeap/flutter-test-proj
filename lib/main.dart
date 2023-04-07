@@ -79,16 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void fn () {
     final db = FirebaseFirestore.instance;
     var logger = Logger();
-    logger.d("message1");
     final docRef = db.collection("test").doc("data");
-    
-    logger.d("message2");
     docRef.get().then(
       (DocumentSnapshot doc) {
         final data = doc.data() as Map<String, dynamic>;
         // ...
-        print("${doc.id} => ${doc.data()}");
-        logger.d("message3");
+        // print("${doc.id} => ${doc.data()}");
         setState(() {
           _counter = data["value"];
         });
@@ -100,20 +96,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState(){
     super.initState();
-
-
     //Restart issue happens for approximately 30 seconds. 
     //Commenting out this function will solve the issue.
     fn();
 
     //----------------------------------------------------------------
     // If fn is called after a delay, then the restart happens 30/(delay) times. 
-    // E.g. if the delay is 15 seconds, then the restart happens 2 times. 
-    
+    // E.g. if the delay is 15 seconds, then the restart happens 2 times.
     // Timer(Duration(seconds: 15), () => fn());
-
-
-    
   }
 
   @override
