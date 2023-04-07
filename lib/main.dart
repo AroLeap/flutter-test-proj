@@ -4,6 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'package:logger/logger.dart';
+import 'dart:async';
+
 
 
 void main() async {
@@ -72,24 +75,45 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-
-  @override
-  void initState(){
-    super.initState();
+  
+  void fn () {
     final db = FirebaseFirestore.instance;
+    var logger = Logger();
+    logger.d("message1");
     final docRef = db.collection("test").doc("data");
+    
+    logger.d("message2");
     docRef.get().then(
       (DocumentSnapshot doc) {
         final data = doc.data() as Map<String, dynamic>;
         // ...
         print("${doc.id} => ${doc.data()}");
-
+        logger.d("message3");
         setState(() {
           _counter = data["value"];
         });
       },
-      onError: (e) => print("Error getting document: $e"),
+      onError: (e) => logger.d(e.toString()),
     );
+  }
+
+  @override
+  void initState(){
+    super.initState();
+
+
+    //Restart issue happens for approximately 30 seconds. 
+    //Commenting out this function will solve the issue.
+    fn();
+
+    //----------------------------------------------------------------
+    // If fn is called after a delay, then the restart happens 30/(delay) times. 
+    // E.g. if the delay is 15 seconds, then the restart happens 2 times. 
+    
+    // Timer(Duration(seconds: 15), () => fn());
+
+
+    
   }
 
   @override
@@ -130,13 +154,17 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: _counter!=0?<Widget>[
             const Text(
               'Data fetched from Firebase firestore, DummyProject:',
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ]:<Widget>[
+            const Text(
+              'Data not yet fetched',
             ),
           ],
         ),
